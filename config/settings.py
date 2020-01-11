@@ -25,7 +25,7 @@ SECRET_KEY = 'm^pc!5#er6d-7jzae-ifaj&%xkl+5)(44ghtxd2ra7i9lk0%ad'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://tareqmonwer.herokuapp.com/', ]
+ALLOWED_HOSTS = ['tareqmonwer.herokuapp.com/', ]
 
 
 # Application definition
