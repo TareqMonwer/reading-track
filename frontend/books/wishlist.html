@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block title %} Reading (Books, Blogs, Papers) {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 mb-3">
+            <h4>
+                Books I'll read soon...
+            </h4>
+            <p>To get better understanding of things and stay motivated,
+                I read books and share a list here.
+            </p>
+        </div>
+        {% for book in book_list %}
+        <div class="col-md-8 border rounded pt-2 mb-4">
+            <h5 class="">{{ book }}</h5>
+            <i>Target Date: <span class="badge badge-dark">{{ book.get_due_date }}</span></i>
+            <p class="text-muted">{{ book.details }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
