@@ -4,10 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 django = "*"
-pillow = "*"
+whitenoise = "==4.1.4"
+gunicorn = "==19.9.0"
 
 [requires]
 python_version = "3.8"

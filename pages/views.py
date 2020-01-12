@@ -5,5 +5,5 @@ def home(request):
     return render(request, 'pages/home.html')
 
 
-def portfolio(request):
-    return render(request, 'pages/portfolio.html')
+# def portfolio(request):
+#     return render(request, 'pages/portfolio.html')
