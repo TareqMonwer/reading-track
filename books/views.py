@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 
-from .models import Book
+from .models import Book, Blog
 
 
 class Reading(ListView):
@@ -8,11 +8,23 @@ class Reading(ListView):
     context_object_name = 'book_list'
     template_name = 'books/reading.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        blogs = Blog.objects.filter(status='R')
+        context['blogs'] = blogs
+        return context
+
 
 class WishList(ListView):
     queryset = Book.objects.filter(status='W')
     context_object_name = 'book_list'
     template_name = 'books/wishlist.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        blogs = Blog.objects.filter(status='W')
+        context['blogs'] = blogs
+        return context
 
 
 class Completed(ListView):

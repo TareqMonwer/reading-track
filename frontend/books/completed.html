@@ -18,11 +18,11 @@
         {% for book in book_list %}
         <div class="col-md-8 border rounded pt-2 mb-4">
             <h5 class="">{{ book }}</h5>
-            <i>Target Date: <span class="badge badge-dark">{{ book.status }}</span></i>
+            <i><span class="badge badge-dark">{{ book.get_status_display }}</span></i>
             <p class="text-muted">{{ book.details }}</p>
             <h5>
-                <img src="{% static 'images/star.jpg' %}" width="40" alt="rating"> 
-                Rating: <span class="badge badge-warning">{{ book.rating }}</span>
+                <img src="{% static 'images/star.jpg' %}" width="35" alt="rating"> 
+                <span class="badge badge-warning">{{ book.rating }}</span>
             </h5>
         </div>
         {% endfor %}
