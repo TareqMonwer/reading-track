@@ -17,7 +17,12 @@
         </div>
         {% for book in book_list %}
         <div class="col-md-8 border rounded pt-2 mb-4">
-            <h5 class="">{{ book }}</h5>
+            <h5 class="">
+                {{ book }}
+                {% if book.read_online %}
+                <a href="{{ book.read_online }}">[read online]</a>
+                {% endif %}
+            </h5>
             <i><span class="badge badge-dark">{{ book.get_status_display }}</span></i>
             <p class="text-muted">{{ book.details }}</p>
             <h5>

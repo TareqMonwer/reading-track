@@ -15,6 +15,7 @@
                 aria-controls="pills-profile" aria-selected="false">Blogs/Articles</a>
         </li>
     </ul>
+    <!-- BOOK -->
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
             <div class="col-md-8 mb-3">
@@ -27,12 +28,22 @@
             </div>
             {% for book in book_list %}
             <div class="col-md-8 border rounded pt-2 mb-4">
-                <h5 class="">{{ book }}</h5>
+                <h5 class="">
+                    {{ book }}
+                    {% if book.read_online %}
+                    <a href="{{ book.read_online }}">[read online]</a>
+                    {% endif %}
+                </h5>
                 <i>Target Date: <span class="badge badge-dark">{{ book.get_due_date }}</span></i>
+                {% if book.get_alert_message %}
+                    <i><span class="badge badge-warning">{{ book.get_alert_message }}</span></i>
+                {% endif %}
                 <p class="text-muted">{{ book.details }}</p>
             </div>
             {% endfor %}
         </div>
+
+        <!-- BLOG -->
         <div class="tab-pane fade show" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab">
             <div class="col-md-8 mb-3">
                 <h4>
@@ -48,6 +59,9 @@
                     <a href="{{ blog.link }}" target="_blank">{{ blog }}</a>
                 </h5>
                 <i>Target Date: <span class="badge badge-dark">{{ blog.get_due_date }}</span></i>
+                {% if book.get_alert_message %}
+                    <i><span class="badge badge-warning">{{ book.get_alert_message }}</span></i>
+                {% endif %}
                 <p class="text-muted">{{ blog.get_priority_display }}</p>
             </div>
             {% endfor %}
