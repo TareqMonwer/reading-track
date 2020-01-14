@@ -10,6 +10,8 @@ pylint = "*"
 django = "*"
 whitenoise = "==4.1.4"
 gunicorn = "==19.9.0"
+pillow = "*"
+django-markdown-deux = "*"
 
 [requires]
 python_version = "3.8"
