@@ -39,9 +39,14 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
+    # third party
+    'markdown_deux',
+
+    # local
     'books',
     'pages',
     'users',
+
 ]
 
 MIDDLEWARE = [
@@ -111,13 +116,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = False
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -135,4 +141,9 @@ STATICFILES_FINDERS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+
+# MEDIA FILES 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 

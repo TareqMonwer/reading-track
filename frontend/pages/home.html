@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load markdown_deux_tags %}
 
 {% block title %} Home {% endblock %}
 
@@ -6,9 +7,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <h2>Not Implemented...</h2>
+        <div class="col-md-12 py-4">
+            <h4>Notes From Study Materials:</h4>
         </div>
+    </div>
+    <div class="row">
+            {% for note in notes %}   
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ note.note_thumbnail.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ note }}</h6>
+                        <small class="text-muted">
+                            published in: 
+                            <strong>{{ note.last_updated }}</strong>
+                        </small>
+                        <a class="d-block" href="{% url 'note-details' note.id %}">
+                            read now
+                        </a>
+                    </div>
+                </div> 
+            </div>      
+            {% empty %}
+                <p>No notes written yet...</p>
+            {% endfor %}
     </div>
 </div>
 
